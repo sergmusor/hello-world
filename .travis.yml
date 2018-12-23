@@ -3,3 +3,4 @@ dist: xenial
 script:
 - cmake .
 - cmake --build .
+- cmake --build . --target package
