@@ -9,7 +9,7 @@ endif ("${TRAVIS_BUILD_NUMBER}" STREQUAL "")
 project (helloworld VERSION 0.0.${TRAVIS_BUILD_NUMBER})
 
 find_package (Boost COMPONENTS unit_test_framework REQUIRED)
-find_package (spdlog REQUIRED)
+# find_package (spdlog REQUIRED)
 # find_package (Threads REQUIRED)
 
 configure_file (version.h.in ${CMAKE_SOURCE_DIR}/version.h)
@@ -32,13 +32,15 @@ set_target_properties (test_version PROPERTIES
 	INCLUDE_DIRECTORIES "${Boost_INCLUDE_DIR}"
 )
 
+#[[
 set_target_properties (helloworld_cli PROPERTIES
 	INCLUDE_DIRECTORIES "${spdlog_INCLUDE_DIR}"
 )
+]]
 
 target_link_libraries (helloworld_cli
 	helloworld
-	"${spdlog_LIBRARIES}"
+#	"${spdlog_LIBRARIES}"
 #	${CMAKE_THREAD_LIBS_INIT}
 )
 
@@ -49,8 +51,8 @@ target_link_libraries (test_version
 
 message (STATUS "Boost include: '${Boost_INCLUDE_DIR}'")
 message (STATUS "Boost library: '${Boost_LIBRARIES}'")
-message (STATUS "spdlog include: '${spdlog_INCLUDE_DIR}'")
-message (STATUS "spdlog library: '${spdlog_LIBRARIES}'")
+# message (STATUS "spdlog include: '${spdlog_INCLUDE_DIR}'")
+# message (STATUS "spdlog library: '${spdlog_LIBRARIES}'")
 
 install (TARGETS helloworld_cli test_version RUNTIME DESTINATION bin)
 
