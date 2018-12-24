@@ -4,7 +4,7 @@
 
 #include <spdlog/spdlog.h>
 
-int main (int argc, char *argv[])
+int main ()
 {
     auto logger = spdlog::stdout_logger_mt("console");
     logger->info("version {} was started", version());
