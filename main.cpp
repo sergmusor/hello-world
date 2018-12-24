@@ -11,5 +11,6 @@ int main() {
 		logger->info("version {} was started", version());
 	}
 
+	std::cout << "Hello, world!" << std::endl;
 	return 0;
 }
