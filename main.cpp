@@ -1,5 +1,6 @@
 #include "lib.h"
 
+#include <cstdlib>
 #include <iostream>
 
 #include <spdlog/spdlog.h>
@@ -11,6 +12,5 @@ int main() {
 		logger->info("version {} was started", version());
 	}
 
-	std::cout << "Hello, world!" << std::endl;
-	return 0;
+	return std::cout << "Hello, world!" << std::endl && logger ? EXIT_SUCCESS : EXIT_FAILURE;
 }
