@@ -6,7 +6,7 @@
 #include <spdlog/spdlog.h>
 
 int main() {
-	auto logger = spdlog::stdout_logger_mt("console");
+	auto const logger{spdlog::stdout_logger_mt("console")};
 
 	if (logger) {
 		logger->info("version {} was started", version());
