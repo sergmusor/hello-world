@@ -41,7 +41,7 @@ target_link_libraries (test_version
 	helloworld
 )
 
-install (TARGETS helloworld_cli test_version RUNTIME DESTINATION bin)
+install (TARGETS helloworld_cli RUNTIME DESTINATION bin)
 
 set (CMAKE_VERBOSE_MAKEFILE ON)
 
