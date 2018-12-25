@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.2)
 
-set (TRAVIS_BUILD_NUMBER $ENV{TRAVIS_BUILD_NUMBER})
+set (TRAVIS_BUILD_NUMBER "$ENV{TRAVIS_BUILD_NUMBER}")
 
 if ("${TRAVIS_BUILD_NUMBER}" STREQUAL "")
 	set (TRAVIS_BUILD_NUMBER "1")
@@ -33,7 +33,7 @@ set_target_properties (test_version PROPERTIES
 
 target_link_libraries (helloworld_cli
 	helloworld
-	${CMAKE_THREAD_LIBS_INIT}
+	"${CMAKE_THREAD_LIBS_INIT}"
 )
 
 target_link_libraries (test_version
