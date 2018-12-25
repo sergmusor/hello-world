@@ -10,10 +10,8 @@ script:
 - cmake --build .
 - cmake --build . --target test
 - cmake --build . --target package
-before_deploy: echo 'Starting deploy'
 deploy:
   provider: script
   skip_cleanup: true
   script:
-  - curl -v -T helloworld-0.0."$TRAVIS_BUILD_NUMBER"-Linux.deb -u sergmusor:"$BINTRAY_API_KEY" "https://api.bintray.com/content/sergmusor/hello-world/helloworld/0.0.$TRAVIS_BUILD_NUMBER/pool/main/h/helloworld/helloworld-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distribution=xenial;deb_component=main;deb_architecture=amd64;publish=1"
-after_deploy: echo 'Deploy is done'
+  - curl -T helloworld-0.0."$TRAVIS_BUILD_NUMBER"-Linux.deb -u sergmusor:"$BINTRAY_API_KEY" "https://api.bintray.com/content/sergmusor/hello-world/helloworld/0.0.$TRAVIS_BUILD_NUMBER/pool/main/h/helloworld/helloworld-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distribution=xenial;deb_component=main;deb_architecture=amd64;publish=1"
