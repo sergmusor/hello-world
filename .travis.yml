@@ -8,10 +8,10 @@ before_script:
 script:
 - nproc
 - cmake --version
-- cmake . -j "`nproc`"
-- cmake --build . -j "`nproc`"
-- cmake --build . -j "`nproc`" --target test
-- cmake --build . -j "`nproc`" --target package
+- cmake . -- -j "`nproc`"
+- cmake --build . -- -j "`nproc`"
+- cmake --build . --target test -- -j "`nproc`"
+- cmake --build . --target package -- -j "`nproc`"
 deploy:
   provider: script
   skip_cleanup: true
