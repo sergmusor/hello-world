@@ -8,8 +8,8 @@ before_script:
 script:
 - nproc
 - cmake --version
-- cmake . -- -j "`nproc`"
-- cmake --build . -- -j "`nproc`"
+- cmake .
+- cmake --build . -- -j"`nproc`"
 - cmake --build . --target test -- -j "`nproc`"
 - cmake --build . --target package -- -j "`nproc`"
 deploy:
