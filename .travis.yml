@@ -7,7 +7,7 @@ before_script:
 - sudo apt-get install -y libgtest-dev
 script:
 - nproc
-- cmake . -- -j "`nproc`"
+- cmake .
 - cmake --build . -- -j "`nproc`"
 - cmake --build . --target test -- -j "`nproc`"
 - cmake --build . --target package -- -j "`nproc`"
